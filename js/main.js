@@ -20,7 +20,7 @@ function createNextButton(episodesURL) {
     $('<button>', {
       class: 'season-button',
       text: 'Load more...'
-    }).on('click', function() {
+    }).on('click', function () {
       $(this).remove()
       getEpisodesList(episodesURL)
     })
@@ -42,8 +42,8 @@ function createEpisodeList(episode) {
 }
 
 function getEpisodeListWraper(season) {
-  if (!$('#'+season).length) createEpisodeListWrapper(season)
-  return $('#'+season)
+  if (!$('#' + season).length) createEpisodeListWrapper(season)
+  return $('#' + season)
 }
 
 function createEpisodeListWrapper(season) {
@@ -166,7 +166,7 @@ function createLocationHeader(location) {
 }
 
 function createEpisodes(episodes) {
-  axios.all(episodes.map(url => axios.get(url))).then(responses => {
+  axios.all(episodes.map(axios.get)).then(responses => {
     responses.forEach(response => createEpisode(response.data))
   })
 }
